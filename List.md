@@ -9,3 +9,8 @@
 * Filters
 * Audit
 * SoftDeletes
+
+### References
+
+* https://lostechies.com/jimmybogard/2014/05/08/missing-ef-feature-workarounds-cascade-delete-orphans/
+* https://lostechies.com/jimmybogard/2014/05/09/missing-ef-feature-workarounds-encapsulated-collections/
