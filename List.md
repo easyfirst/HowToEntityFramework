@@ -9,6 +9,8 @@
 * Filters
 * Audit
 * SoftDeletes
+* Save and Get Aggregate Roots
+* Get a Hierarchical Tree
 
 ### References
 
