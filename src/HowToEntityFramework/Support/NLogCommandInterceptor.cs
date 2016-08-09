@@ -5,12 +5,12 @@ using System.Data.Entity;
 using System.Data.Entity.Infrastructure.Interception;
 using System.Diagnostics;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
-using System.Reflection;
 using NLog;
 
-namespace Imperium.Framework.Data
+namespace HowToEntityFramework.Support
 {
     [DebuggerStepThrough]
     public class NLogCommandInterceptor : IDbCommandInterceptor, IDbConnectionInterceptor, IDbTransactionInterceptor

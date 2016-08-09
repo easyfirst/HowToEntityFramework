@@ -1,6 +1,6 @@
 ﻿using System.Data.Entity;
 using System.Data.Entity.Infrastructure.Interception;
-using Imperium.Framework.Data;
+using HowToEntityFramework.Support;
 using NLog;
 using NLog.Config;
 using NLog.Targets;
