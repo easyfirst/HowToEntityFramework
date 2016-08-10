@@ -67,6 +67,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="HowTo\Private_setter.cs" />
     <Compile Include="Support\BaseDbContext.cs" />
     <Compile Include="HowTo\Required_constructor.cs" />
     <Compile Include="Support\App.cs" />

@@ -6,7 +6,7 @@ using Shouldly;
 namespace HowToEntityFramework.HowTo
 {
     /// <summary>
-    /// How? Create a protected constructor
+    /// How? Create a private empty constructor to let EF initialize the entity on runtime
     /// </summary>
     [TestFixture]
     public class Required_constructor
@@ -17,7 +17,7 @@ namespace HowToEntityFramework.HowTo
             public string Name { get; set; }
             public decimal Price { get; set; }
 
-            protected Product()
+            private Product()
             {
             }
 
@@ -34,7 +34,7 @@ namespace HowToEntityFramework.HowTo
         }
 
         [SetUp]
-        public void Arrange()
+        public void Scenario()
         {
             using (var db = new DatabaseContext())
             {

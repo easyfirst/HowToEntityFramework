@@ -1,6 +1,6 @@
 # How To List
 
-* Required constructor
+* Required constructor [OK]
 * Private setters
 * Encapsuled collections
 * Encapsuled primitives
