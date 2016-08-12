@@ -11,6 +11,7 @@
 * SoftDeletes
 * Save and Get Aggregate Roots
 * Get a Hierarchical Tree
+* Update only a property without query the entity
 
 ### References
 
