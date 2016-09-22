@@ -1,4 +1,4 @@
-﻿namespace HowToEntityFramework
+﻿namespace HowToEntityFramework.Support
 {
     public class App
     {

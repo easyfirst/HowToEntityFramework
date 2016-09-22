@@ -1,5 +1,7 @@
 ﻿using System.Data.Entity;
 using System.Linq;
+using HowToEntityFramework.Domain;
+using HowToEntityFramework.Support;
 using NUnit.Framework;
 using Shouldly;
 
@@ -9,31 +11,9 @@ namespace HowToEntityFramework.HowTo
     /// How? Create a private empty constructor to let EF initialize the entity on runtime
     /// </summary>
     [TestFixture]
-    public class Required_constructor
+    public class RequiredConstructorTest
     {
-        public class Product
-        {
-            public long Id { get; set; }
-            public string Name { get; set; }
-            public decimal Price { get; set; }
-
-            private Product()
-            {
-            }
-
-            public Product(string name, decimal price)
-            {
-                Name = name;
-                Price = price;
-            }
-        }
-
-        public class DatabaseContext : BaseDbContext
-        {
-            public DbSet<Product> Products { get; set; }
-        }
-
-        [SetUp]
+       [SetUp]
         public void Scenario()
         {
             using (var db = new DatabaseContext())

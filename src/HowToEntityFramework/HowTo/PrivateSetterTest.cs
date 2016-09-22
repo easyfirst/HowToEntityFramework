@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Data.Entity;
 using System.Linq;
+using HowToEntityFramework.Domain;
+using HowToEntityFramework.Support;
 using NUnit.Framework;
 using Shouldly;
 
@@ -10,30 +12,8 @@ namespace HowToEntityFramework.HowTo
     /// How? Set property as virtual
     /// </summary>
     [TestFixture]
-    public class Private_setter
+    public class PrivateSetterTest
     {
-        public class User
-        {
-            public long Id { get; set; }
-            public string Name { get; private set; }
-            public virtual int YearOfBirth { get; private set; }
-
-            private User()
-            {
-            }
-
-            public User(string name, int actualAge)
-            {
-                Name = name;
-                YearOfBirth = DateTime.Now.AddYears(-actualAge).Year;
-            }
-        }
-
-        public class DatabaseContext : BaseDbContext
-        {
-            public DbSet<User> Users { get; set; }
-        }
-
         [SetUp]
         public void Arrange()
         {

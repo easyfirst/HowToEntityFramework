@@ -1,15 +1,14 @@
-﻿using System.Data.Entity;
-using System.Data.Entity.Infrastructure.Interception;
-using HowToEntityFramework.Support;
-using NLog;
+﻿using NLog;
 using NLog.Config;
 using NLog.Targets;
 
-namespace HowToEntityFramework
+namespace HowToEntityFramework.Support
 {
-    public abstract class BaseDbContext : DbContext
+    public static class Log
     {
-        protected BaseDbContext() : base(App.ConnectionString)
+        public static Logger App { get; private set; }
+
+        static Log()
         {
             var config = new LoggingConfiguration();
 
@@ -23,9 +22,7 @@ namespace HowToEntityFramework
             config.LoggingRules.Add(new LoggingRule("*", LogLevel.Debug, consoleTarget));
 
             LogManager.Configuration = config;
-            Logger logger = LogManager.GetLogger("App");
-
-            DbInterception.Add(new NLogCommandInterceptor(logger));
+            App = LogManager.GetLogger("App");
         }
     }
 }

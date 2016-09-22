@@ -1,6 +1,6 @@
 ﻿using Respawn;
 
-namespace HowToEntityFramework
+namespace HowToEntityFramework.Support
 {
     public class DbFixture
     {
