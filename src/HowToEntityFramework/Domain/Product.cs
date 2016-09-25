@@ -10,9 +10,9 @@ namespace HowToEntityFramework.Domain
         public DateTime UpdatedAt { get; set; }
         public DateTime CreatedAt { get; set; }
 
-        //private Product()
-        //{
-        //}
+        private Product()
+        {
+        }
 
         public Product(string name, decimal price)
         {
