@@ -73,8 +73,13 @@
   <ItemGroup>
     <Compile Include="Domain\Audit.cs" />
     <Compile Include="Domain\IAuditable.cs" />
+    <Compile Include="Domain\IEffectivable.cs" />
+    <Compile Include="Domain\IEntity.cs" />
     <Compile Include="Domain\ISoftDeletable.cs" />
+    <Compile Include="Domain\Effective.cs" />
+    <Compile Include="HowTo\EffectiveTest.cs" />
     <Compile Include="HowTo\AuditableTest.cs" />
+    <Compile Include="Domain\Discount.cs" />
     <Compile Include="Support\IntegratedTest.cs" />
     <Compile Include="Support\DatabaseContext.cs" />
     <Compile Include="Domain\Product.cs" />

@@ -44,5 +44,6 @@ namespace HowToEntityFramework.Support
 
         public DbSet<User> Users { get; set; }
         public DbSet<Product> Products { get; set; }
+        public DbSet<Discount> Discounts { get; set; }
     }
 }
