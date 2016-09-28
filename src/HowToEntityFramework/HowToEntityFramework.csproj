@@ -71,6 +71,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Domain\Audit.cs" />
     <Compile Include="Domain\IAuditable.cs" />
     <Compile Include="Domain\ISoftDeletable.cs" />
     <Compile Include="HowTo\AuditableTest.cs" />

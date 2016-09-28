@@ -1,14 +1,11 @@
-﻿using System;
-
-namespace HowToEntityFramework.Domain
+﻿namespace HowToEntityFramework.Domain
 {
     public class Product : IAuditable
     {
         public long Id { get; set; }
         public string Name { get; set; }
         public decimal Price { get; set; }
-        public DateTime UpdatedAt { get; set; }
-        public DateTime CreatedAt { get; set; }
+        public Audit Audit { get; set; } = new Audit();
 
         private Product()
         {

@@ -11,7 +11,7 @@ namespace HowToEntityFramework.HowTo
     /// How? Create a private empty constructor to let EF initialize the entity on runtime
     /// </summary>
     [TestFixture]
-    public class RequiredConstructorTest
+    public class RequiredConstructorTest : IntegratedTest
     {
        [SetUp]
         public void Scenario()

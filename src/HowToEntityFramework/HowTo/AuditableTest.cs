@@ -42,8 +42,8 @@ namespace HowToEntityFramework.HowTo
             using (var db = new DatabaseContext())
             {
                 var galaxy = db.Products.Single(x => x.Name == "Galaxy");
-                galaxy.CreatedAt.ShouldBe(createdAt);
-                galaxy.UpdatedAt.ShouldBe(updatedAt);
+                galaxy.Audit.CreatedAt.ShouldBe(createdAt);
+                galaxy.Audit.UpdatedAt.ShouldBe(updatedAt);
             }
         }
     }

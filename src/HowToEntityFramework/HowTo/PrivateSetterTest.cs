@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Data.Entity;
 using System.Linq;
 using HowToEntityFramework.Domain;
 using HowToEntityFramework.Support;
@@ -12,7 +11,7 @@ namespace HowToEntityFramework.HowTo
     /// How? Set property as virtual
     /// </summary>
     [TestFixture]
-    public class PrivateSetterTest
+    public class PrivateSetterTest : IntegratedTest
     {
         [SetUp]
         public void Arrange()

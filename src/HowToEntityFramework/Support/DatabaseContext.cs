@@ -27,8 +27,7 @@ namespace HowToEntityFramework.Support
 
             foreach (var entityBeingCreated in entitiesBeingCreated)
             {
-                entityBeingCreated.CreatedAt = App.Clock();
-                entityBeingCreated.UpdatedAt = App.Clock();
+                entityBeingCreated.Audit.BeingCreated();
             }
 
             var entitiesBeingUpdated = ChangeTracker.Entries<IAuditable>()
@@ -37,7 +36,7 @@ namespace HowToEntityFramework.Support
 
             foreach (var entityBeingUpdated in entitiesBeingUpdated)
             {
-                entityBeingUpdated.UpdatedAt = App.Clock();
+                entityBeingUpdated.Audit.BeingUpdated();
             }
 
             return base.SaveChanges();
