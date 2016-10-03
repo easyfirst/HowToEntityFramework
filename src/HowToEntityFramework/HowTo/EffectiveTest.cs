@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Linq;
+using HowToEntityFramework.Concerns;
 using HowToEntityFramework.Domain;
-using HowToEntityFramework.Support;
+using HowToEntityFramework.Infra;
 using NUnit.Framework;
 using Shouldly;
 
@@ -21,7 +22,6 @@ namespace HowToEntityFramework.HowTo
 
             using (var db = new DatabaseContext())
             {
-                
                 db.Products.Add(iphone);
                 db.Products.Add(galaxy);
 
@@ -35,12 +35,12 @@ namespace HowToEntityFramework.HowTo
             {
                 db.Discounts
                     .Where(x => x.ProductId == iphone.Id)
-                    .Where(x => x.Effective.IsEffectiveFor(new DateTime(2016, 5, 31)))
-                    .ShouldBeEmpty();
+                    .Count(Effective.On(new DateTime(2016, 5, 1)))
+                    .ShouldBe(0);
 
                 db.Discounts
                     .Where(x => x.ProductId == iphone.Id)
-                    .Count(x => x.Effective.IsEffectiveFor(new DateTime(2016, 6, 1)))
+                    .Count(Effective.On(new DateTime(2016, 6, 1)))
                     .ShouldBe(1);
             }
         }

@@ -1,9 +1,15 @@
 using System;
+using System.Linq.Expressions;
 
-namespace HowToEntityFramework.Domain
+namespace HowToEntityFramework.Concerns
 {
     public class Effective
     {
+        public static Expression<Func<IEffectivable, bool>> On(DateTime date)
+        {
+            return x => (x.Effective.From.HasValue == false || date >= x.Effective.From.Value) && (x.Effective.To.HasValue == false || date <= x.Effective.To.Value);
+        }
+
         public Effective(DateTime from, DateTime to)
         {
             To = to;
@@ -14,6 +20,10 @@ namespace HowToEntityFramework.Domain
         {
             From = from;
             To = null;
+        }
+
+        private Effective()
+        {
         }
 
         public DateTime? From { get; private set; }

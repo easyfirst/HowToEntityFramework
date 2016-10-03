@@ -2,7 +2,7 @@
 using NLog.Config;
 using NLog.Targets;
 
-namespace HowToEntityFramework.Support
+namespace HowToEntityFramework.Infra
 {
     public static class Log
     {

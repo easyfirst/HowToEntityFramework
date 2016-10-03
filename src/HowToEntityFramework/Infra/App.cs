@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace HowToEntityFramework.Support
+namespace HowToEntityFramework.Infra
 {
     public class App
     {

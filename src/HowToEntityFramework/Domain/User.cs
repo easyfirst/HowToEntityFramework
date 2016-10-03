@@ -1,4 +1,5 @@
 ﻿using System;
+using HowToEntityFramework.Concerns;
 
 namespace HowToEntityFramework.Domain
 {

@@ -1,7 +1,7 @@
 using System;
-using HowToEntityFramework.Support;
+using HowToEntityFramework.Infra;
 
-namespace HowToEntityFramework.Domain
+namespace HowToEntityFramework.Concerns
 {
     public class Audit
     {

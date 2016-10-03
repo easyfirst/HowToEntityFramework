@@ -1,4 +1,4 @@
-namespace HowToEntityFramework.Domain
+namespace HowToEntityFramework.Concerns
 {
     public interface ISoftDeletable
     {

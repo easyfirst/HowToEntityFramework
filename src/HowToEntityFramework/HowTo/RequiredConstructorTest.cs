@@ -1,7 +1,7 @@
 ﻿using System.Data.Entity;
 using System.Linq;
 using HowToEntityFramework.Domain;
-using HowToEntityFramework.Support;
+using HowToEntityFramework.Infra;
 using NUnit.Framework;
 using Shouldly;
 

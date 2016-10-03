@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace HowToEntityFramework.Domain
+﻿namespace HowToEntityFramework.Concerns
 {
     public interface IAuditable
     {

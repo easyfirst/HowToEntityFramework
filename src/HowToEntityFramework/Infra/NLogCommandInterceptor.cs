@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using NLog;
 
-namespace HowToEntityFramework.Support
+namespace HowToEntityFramework.Infra
 {
     [DebuggerStepThrough]
     public class NLogCommandInterceptor : IDbCommandInterceptor, IDbConnectionInterceptor, IDbTransactionInterceptor

@@ -1,10 +1,11 @@
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure.Interception;
 using System.Linq;
+using HowToEntityFramework.Concerns;
 using HowToEntityFramework.Domain;
 using Z.EntityFramework.Plus;
 
-namespace HowToEntityFramework.Support
+namespace HowToEntityFramework.Infra
 {
     public class DatabaseContext : DbContext
     {
@@ -16,11 +17,13 @@ namespace HowToEntityFramework.Support
         {
             DbInterception.Add(new NLogCommandInterceptor(Log.App));
 
+            // TODO: IoC Configurable
             QueryFilterManager.Filter<ISoftDeletable>(q => q.Where(x => x.IsDeleted == false));
         }
 
         public override int SaveChanges()
         {
+            // TODO: IoC Before Save Handlers
             var entitiesBeingCreated = ChangeTracker.Entries<IAuditable>()
                     .Where(p => p.State == EntityState.Added)
                     .Select(p => p.Entity);

@@ -1,4 +1,6 @@
-﻿namespace HowToEntityFramework.Domain
+﻿using HowToEntityFramework.Concerns;
+
+namespace HowToEntityFramework.Domain
 {
     public class Product : IAuditable, IEntity
     {

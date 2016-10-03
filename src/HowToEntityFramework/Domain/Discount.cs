@@ -1,3 +1,4 @@
+using HowToEntityFramework.Concerns;
 using HowToEntityFramework.HowTo;
 
 namespace HowToEntityFramework.Domain
@@ -9,6 +10,10 @@ namespace HowToEntityFramework.Domain
         public decimal Price { get; private set; }
         public Product Product { get; private set; }
         public long ProductId { get; private set; }
+
+        private Discount()
+        {
+        }
 
         public Discount(Product product, decimal price, Effective effective)
         {

@@ -1,6 +1,4 @@
-using HowToEntityFramework.HowTo;
-
-namespace HowToEntityFramework.Domain
+namespace HowToEntityFramework.Concerns
 {
     /// <summary>
     /// Definitely this word does not exist

@@ -71,26 +71,29 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Domain\Audit.cs" />
-    <Compile Include="Domain\IAuditable.cs" />
-    <Compile Include="Domain\IEffectivable.cs" />
-    <Compile Include="Domain\IEntity.cs" />
-    <Compile Include="Domain\ISoftDeletable.cs" />
-    <Compile Include="Domain\Effective.cs" />
+    <Compile Include="Concerns\Audit.cs" />
+    <Compile Include="Concerns\IAuditable.cs" />
+    <Compile Include="Concerns\IEffectivable.cs" />
+    <Compile Include="Concerns\IEntity.cs" />
+    <Compile Include="Concerns\ISoftDeletable.cs" />
+    <Compile Include="Concerns\Effective.cs" />
     <Compile Include="HowTo\EffectiveTest.cs" />
     <Compile Include="HowTo\AuditableTest.cs" />
     <Compile Include="Domain\Discount.cs" />
-    <Compile Include="Support\IntegratedTest.cs" />
-    <Compile Include="Support\DatabaseContext.cs" />
+    <Compile Include="Infra\DatabaseMigrator.cs" />
+    <Compile Include="Infra\IDatabaseCleaner.cs" />
+    <Compile Include="Infra\IDatabaseMigrator.cs" />
+    <Compile Include="Infra\IntegratedTest.cs" />
+    <Compile Include="Infra\DatabaseContext.cs" />
     <Compile Include="Domain\Product.cs" />
     <Compile Include="HowTo\SoftDeleteTest.cs" />
     <Compile Include="HowTo\PrivateSetterTest.cs" />
     <Compile Include="Domain\User.cs" />
     <Compile Include="HowTo\RequiredConstructorTest.cs" />
-    <Compile Include="Support\App.cs" />
-    <Compile Include="Support\DbFixture.cs" />
-    <Compile Include="Support\Log.cs" />
-    <Compile Include="Support\NLogCommandInterceptor.cs" />
+    <Compile Include="Infra\App.cs" />
+    <Compile Include="Infra\Log.cs" />
+    <Compile Include="Infra\NLogCommandInterceptor.cs" />
+    <Compile Include="Infra\RespawnDatabaseCleaner.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
