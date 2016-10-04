@@ -32,12 +32,24 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DelegateDecompiler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=93b26a10a04705bd, processorArchitecture=MSIL">
+      <HintPath>..\packages\DelegateDecompiler.0.19.0\lib\net40-Client\DelegateDecompiler.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DelegateDecompiler.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=93b26a10a04705bd, processorArchitecture=MSIL">
+      <HintPath>..\packages\DelegateDecompiler.EntityFramework.0.19.0\lib\net45\DelegateDecompiler.EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Mono.Reflection, Version=1.1.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
+      <HintPath>..\packages\Mono.Reflection.1.1.0.0\lib\Mono.Reflection.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
@@ -77,10 +89,15 @@
     <Compile Include="Concerns\IEntity.cs" />
     <Compile Include="Concerns\ISoftDeletable.cs" />
     <Compile Include="Concerns\Effective.cs" />
+    <Compile Include="Domain\Stock.cs" />
     <Compile Include="HowTo\EffectiveTest.cs" />
     <Compile Include="HowTo\AuditableTest.cs" />
     <Compile Include="Domain\Discount.cs" />
+    <Compile Include="HowTo\EncapsulatedCollectionsTest.cs" />
+    <Compile Include="Domain\Store.cs" />
     <Compile Include="Infra\DatabaseMigrator.cs" />
+    <Compile Include="Infra\EntityFrameworkMappingConfiguration.cs" />
+    <Compile Include="Infra\EntityTypeConfigurationEx.cs" />
     <Compile Include="Infra\IDatabaseCleaner.cs" />
     <Compile Include="Infra\IDatabaseMigrator.cs" />
     <Compile Include="Infra\IntegratedTest.cs" />
@@ -94,6 +111,7 @@
     <Compile Include="Infra\Log.cs" />
     <Compile Include="Infra\NLogCommandInterceptor.cs" />
     <Compile Include="Infra\RespawnDatabaseCleaner.cs" />
+    <Compile Include="Mappings\ProductMapping.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

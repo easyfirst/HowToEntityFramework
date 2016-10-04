@@ -1,7 +1,7 @@
 # How To List
 
 * Required constructor [OK]
-* Private setters
+* Private setters [OK]
 * Encapsuled collections
 * Encapsuled primitives
 * Enumeration properties
@@ -18,3 +18,7 @@
 
 * https://lostechies.com/jimmybogard/2014/05/08/missing-ef-feature-workarounds-cascade-delete-orphans/
 * https://lostechies.com/jimmybogard/2014/05/09/missing-ef-feature-workarounds-encapsulated-collections/
+
+### Refactorings
+
+* A clean way to configure BeforeSave interceptors (ex: refactor IAuditable)
