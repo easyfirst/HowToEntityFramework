@@ -10,17 +10,13 @@ using Shouldly;
 
 namespace HowToEntityFramework.HowTo
 {
-    /// <summary>
-    /// References:
-    ///     https://gist.github.com/hazzik/c08eabc7dffdca83eb55
-    ///     https://lostechies.com/jimmybogard/2014/05/09/missing-ef-feature-workarounds-encapsulated-collections/
-    /// </summary>
     [TestFixture]
-    public class EncapsulatedCollectionsTest : IntegratedTest
+    public class CascadeDeleteOrphansTest : IntegratedTest
     {
         [Test]
         public void Should_save_encapsulated_collections()
         {
+            // arrange
             var dublin = new Store("Dublin");
             var london = new Store("London");
 
@@ -34,6 +30,22 @@ namespace HowToEntityFramework.HowTo
                 db.SaveChanges();
             }
 
+            // act
+            using (var db = new DatabaseContext())
+            {
+                var fetch = db.Products
+                    .Where(x => x.Id == iphone.Id)
+                    .Include(x => x.Stocks)
+                    .Include(x => x.Stocks.Select(s => s.Store))
+                    .FirstOrDefault();
+
+                fetch.RemoveStock(dublin);
+                fetch.Stocks.Count().ShouldBe(1);
+
+                db.SaveChanges();
+            }
+
+            // assert
             using (var db = new DatabaseContext())
             {
                 var result = db.Products

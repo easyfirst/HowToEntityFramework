@@ -19,6 +19,8 @@ namespace HowToEntityFramework.Infra
 
             // TODO: IoC Configurable
             QueryFilterManager.Filter<ISoftDeletable>(q => q.Where(x => x.IsDeleted == false));
+
+            modelBuilder.Entity<Product>().HasMany(x => x.Stocks);
         }
 
         public override int SaveChanges()

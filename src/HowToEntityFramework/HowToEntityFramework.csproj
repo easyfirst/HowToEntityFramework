@@ -93,6 +93,7 @@
     <Compile Include="HowTo\EffectiveTest.cs" />
     <Compile Include="HowTo\AuditableTest.cs" />
     <Compile Include="Domain\Discount.cs" />
+    <Compile Include="HowTo\CascadeDeleteOrphansTest.cs" />
     <Compile Include="HowTo\EncapsulatedCollectionsTest.cs" />
     <Compile Include="Domain\Store.cs" />
     <Compile Include="Infra\DatabaseMigrator.cs" />
@@ -110,6 +111,7 @@
     <Compile Include="Infra\App.cs" />
     <Compile Include="Infra\Log.cs" />
     <Compile Include="Infra\NLogCommandInterceptor.cs" />
+    <Compile Include="Infra\QueryableExtensions.cs" />
     <Compile Include="Infra\RespawnDatabaseCleaner.cs" />
     <Compile Include="Mappings\ProductMapping.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

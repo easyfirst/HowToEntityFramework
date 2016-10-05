@@ -1,18 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using HowToEntityFramework.Concerns;
 
 namespace HowToEntityFramework.Domain
 {
     public class Product : IAuditable, IEntity
     {
-        public ICollection<Stock> Stocks { get; set; } = new HashSet<Stock>();
-        
+        //public ICollection<Stock> Stocks { get; set; } = new HashSet<Stock>();
+        protected virtual ICollection<Stock> _stocks { get; set; } = new HashSet<Stock>();
+
         public long Id { get; private set; }
         public string Name { get; set; }
         public decimal Price { get; set; }
         public Audit Audit { get; set; } = new Audit();
-        //public IEnumerable<Stock> Stocks => Stocks;
+        public IEnumerable<Stock> Stocks => _stocks;
 
         private Product()
         {
@@ -26,7 +28,13 @@ namespace HowToEntityFramework.Domain
 
         public void AddQuantityInStock(Store store, int quantity)
         {
-            Stocks.Add(new Stock(this, store, quantity));
+            _stocks.Add(new Stock(this, store, quantity));
+        }
+
+        public void RemoveStock(Store store)
+        {
+            var internalStore = _stocks.FirstOrDefault(x => x.Id == store.Id);
+            _stocks.Remove(internalStore);
         }
     }
 }

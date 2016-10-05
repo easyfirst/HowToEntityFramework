@@ -2,7 +2,7 @@
 
 * Required constructor [OK]
 * Private setters [OK]
-* Encapsuled collections
+* Encapsuled collections [OK]
 * Encapsuled primitives
 * Enumeration properties
 * NodaTime properties
@@ -13,6 +13,8 @@
 * Get a Hierarchical Tree
 * Update only a property without query the entity
 * SaveOrUpdate patterns
+
+* Entity base class with Equals and GetHashCode()
 
 ### References
 
