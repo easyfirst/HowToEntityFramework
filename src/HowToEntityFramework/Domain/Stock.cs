@@ -10,6 +10,8 @@ namespace HowToEntityFramework.Domain
         public Store Store { get; private set; }
         public int Quantity { get; private set; }
 
+        public long ProductId { get; private set; }
+
         private Stock()
         {
         }

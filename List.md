@@ -4,16 +4,17 @@
 * Private setters [OK]
 * Encapsuled collections [OK]
 * Encapsuled primitives
+* Cascade delete orphans [OK]
 * Enumeration properties
 * NodaTime properties
 * Filters
-* Audit
-* SoftDeletes
+* Audit [OK]
+* SoftDeletes [OK]
 * Save and Get Aggregate Roots
 * Get a Hierarchical Tree
 * Update only a property without query the entity
 * SaveOrUpdate patterns
-
+* FluentMigrator
 * Entity base class with Equals and GetHashCode()
 
 ### References

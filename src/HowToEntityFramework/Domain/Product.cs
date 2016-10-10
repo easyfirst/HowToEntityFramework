@@ -33,8 +33,8 @@ namespace HowToEntityFramework.Domain
 
         public void RemoveStock(Store store)
         {
-            var internalStore = _stocks.FirstOrDefault(x => x.Id == store.Id);
-            _stocks.Remove(internalStore);
+            var storeToBeRemoved = _stocks.FirstOrDefault(x => x.Id == store.Id);
+            _stocks.Remove(storeToBeRemoved);
         }
     }
 }

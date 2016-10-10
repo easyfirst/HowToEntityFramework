@@ -1,8 +1,4 @@
-﻿using System;
-using System.Data.Entity;
-using System.Linq;
-using DelegateDecompiler;
-using HowToEntityFramework.Concerns;
+﻿using System.Linq;
 using HowToEntityFramework.Domain;
 using HowToEntityFramework.Infra;
 using NUnit.Framework;
@@ -17,15 +13,15 @@ namespace HowToEntityFramework.HowTo
         public void Should_save_encapsulated_collections()
         {
             // arrange
-            var dublin = new Store("Dublin");
-            var london = new Store("London");
-
-            var iphone = new Product("iPhone", 499);
-            iphone.AddQuantityInStock(dublin, 10);
-            iphone.AddQuantityInStock(london, 20);
-            
             using (var db = new DatabaseContext())
             {
+                var dublin = new Store("Dublin");
+                var london = new Store("London");
+
+                var iphone = new Product("iPhone", 499);
+                iphone.AddQuantityInStock(dublin, 10);
+                iphone.AddQuantityInStock(london, 20);
+
                 db.Products.Add(iphone);
                 db.SaveChanges();
             }
@@ -33,14 +29,16 @@ namespace HowToEntityFramework.HowTo
             // act
             using (var db = new DatabaseContext())
             {
-                var fetch = db.Products
-                    .Where(x => x.Id == iphone.Id)
+                var dublin = db.Stores.SingleOrDefault(x => x.Name == "Dublin");
+
+                var iphone = db.Products
+                    .Where(x => x.Name == "iPhone")
                     .Include(x => x.Stocks)
                     .Include(x => x.Stocks.Select(s => s.Store))
-                    .FirstOrDefault();
+                    .SingleOrDefault();
 
-                fetch.RemoveStock(dublin);
-                fetch.Stocks.Count().ShouldBe(1);
+                iphone.RemoveStock(dublin);
+                iphone.Stocks.Count().ShouldBe(1);
 
                 db.SaveChanges();
             }
@@ -48,19 +46,20 @@ namespace HowToEntityFramework.HowTo
             // assert
             using (var db = new DatabaseContext())
             {
-                var result = db.Products
-                    .Where(x => x.Name == iphone.Name)
+                db.Stocks.Count().ShouldBe(1);
+
+                var london = db.Stores.SingleOrDefault(x => x.Name == "London");
+
+                var iphone = db.Products
+                    .Where(x => x.Name == "iPhone")
                     .Include(x => x.Stocks)
                     .Include(x => x.Stocks.Select(s => s.Store))
                     .SingleOrDefault();
 
-                result.Stocks.Count().ShouldBe(2);
+                iphone.Stocks.Count().ShouldBe(1);
 
-                result.Stocks.ElementAt(0).Store.Id.ShouldBe(dublin.Id);
-                result.Stocks.ElementAt(0).Quantity.ShouldBe(10);
-
-                result.Stocks.ElementAt(1).Store.Id.ShouldBe(london.Id);
-                result.Stocks.ElementAt(1).Quantity.ShouldBe(20);
+                iphone.Stocks.ElementAt(0).Store.Id.ShouldBe(london.Id);
+                iphone.Stocks.ElementAt(0).Quantity.ShouldBe(20);
             }
         }
     }
