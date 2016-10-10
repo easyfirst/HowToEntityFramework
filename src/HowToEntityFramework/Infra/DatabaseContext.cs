@@ -24,6 +24,10 @@ namespace HowToEntityFramework.Infra
             modelBuilder.Entity<Product>().HasMany(x => x.Stocks);
 
             modelBuilder.Entity<Stock>().HasKey(x => new { x.Id, x.ProductId });
+
+            modelBuilder.Properties()
+                .Where(p => p.Name.EndsWith("Buddy"))
+                .Configure(p => p.HasColumnName(p.ClrPropertyInfo.Name.Replace("Buddy", string.Empty)));
         }
 
         public override int SaveChanges()

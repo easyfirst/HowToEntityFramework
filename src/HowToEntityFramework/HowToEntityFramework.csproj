@@ -118,7 +118,6 @@
     <Compile Include="Infra\NLogCommandInterceptor.cs" />
     <Compile Include="Infra\QueryableExtensions.cs" />
     <Compile Include="Infra\RespawnDatabaseCleaner.cs" />
-    <Compile Include="Mappings\ProductMapping.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -21,10 +21,10 @@ namespace HowToEntityFramework.HowTo
             using (var db = new DatabaseContext())
             {
                 var dublin = new Store("Dublin", new LocalTime(9, 0), new LocalTime(19, 0));
-                var amsterdam = new Store("Amsterdam", new LocalTime(9, 0), new LocalTime(18, 0));
+                //var amsterdam = new Store("Amsterdam", new LocalTime(9, 0), new LocalTime(18, 0));
                 
                 db.Stores.Add(dublin);
-                db.Stores.Add(amsterdam);
+                //db.Stores.Add(amsterdam);
 
                 db.SaveChanges();
             }
